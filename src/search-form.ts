@@ -1,4 +1,6 @@
 import { renderBlock } from './lib.js'
+import { ISearchFormData, ISearchCB, IData, IPlace } from './interfaces.js'
+
 
 export function renderSearchFormBlock () {
   
@@ -52,3 +54,17 @@ export function renderSearchFormBlock () {
     `
   )
 }
+
+export function search(data: ISearchFormData, searchCB: ISearchCB): void {
+  console.log('function search ISearchFormData = ', data)
+}
+
+setTimeout(() => {
+  const searchCB: ISearchCB = (data: IData) => {
+    if (data.error) {
+      console.error(data.error);
+    }else{
+      console.log('searchCB', data.data);
+    }
+  }
+}, 3000);
